@@ -1,0 +1,194 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  /* Caffeine (light) — exact tokens from 21st.dev/@serafimcloud/themes/caffeine */
+  --card: 0.991 0 0;
+  --ring: 0.434 0.039 41.994;
+  --input: 0.882 0 0;
+  --muted: 0.952 0 0;
+  --accent: 0.931 0 0;
+  --border: 0.882 0 0;
+  --radius: 0.5rem;
+  --chart-1: 0.434 0.039 41.994;
+  --chart-2: 0.92 0.065 74.369;
+  --chart-3: 0.931 0 0;
+  --chart-4: 0.937 0.052 75.501;
+  --chart-5: 0.434 0.044 41.675;
+  --popover: 0.991 0 0;
+  --primary: 0.434 0.039 41.994;
+  --sidebar: 0.988 0 0;
+  --secondary: 0.92 0.065 74.369;
+  --background: 0.982 0 0;
+  --foreground: 0.244 0 0;
+  --destructive: 0.627 0.194 33.339;
+  --sidebar-ring: 0.773 0 0;
+  --sidebar-accent: 0.976 0 0;
+  --sidebar-border: 0.94 0 0;
+  --card-foreground: 0.244 0 0;
+  --sidebar-primary: 0.325 0 0;
+  --muted-foreground: 0.503 0 0;
+  --accent-foreground: 0.244 0 0;
+  --popover-foreground: 0.244 0 0;
+  --primary-foreground: 1 0 0;
+  --sidebar-foreground: 0.264 0 0;
+  --secondary-foreground: 0.35 0.069 40.829;
+  --destructive-foreground: 1 0 0;
+  --sidebar-accent-foreground: 0.325 0 0;
+  --sidebar-primary-foreground: 0.988 0 0;
+  --font-sans: ui-sans-serif, system-ui, sans-serif;
+  --font-serif: ui-serif, Georgia, serif;
+  --font-mono: ui-monospace, SFMono-Regular, monospace;
+  --letter-spacing: 0em;
+  color-scheme: light;
+}
+
+.dark {
+  /* Caffeine espresso (dark) — derived in the same coffee family */
+  --background: 0.21 0.025 42;
+  --foreground: 0.93 0.02 72;
+  --card: 0.245 0.03 44;
+  --card-foreground: 0.93 0.02 72;
+  --popover: 0.245 0.03 44;
+  --popover-foreground: 0.93 0.02 72;
+  --primary: 0.78 0.085 68;
+  --primary-foreground: 0.26 0.05 42;
+  --secondary: 0.33 0.055 46;
+  --secondary-foreground: 0.9 0.03 72;
+  --muted: 0.29 0.035 46;
+  --muted-foreground: 0.66 0.03 62;
+  --accent: 0.31 0.04 50;
+  --accent-foreground: 0.92 0.02 72;
+  --destructive: 0.55 0.19 28;
+  --destructive-foreground: 0.98 0 0;
+  --border: 0.33 0.035 46;
+  --input: 0.33 0.035 46;
+  --ring: 0.72 0.08 64;
+  --chart-1: 0.72 0.09 64;
+  --chart-2: 0.55 0.08 50;
+  --chart-3: 0.42 0.05 45;
+  --chart-4: 0.82 0.06 75;
+  --chart-5: 0.6 0.07 55;
+  --sidebar: 0.19 0.022 40;
+  --sidebar-foreground: 0.9 0.02 70;
+  --sidebar-primary: 0.78 0.085 68;
+  --sidebar-primary-foreground: 0.26 0.05 42;
+  --sidebar-accent: 0.27 0.03 45;
+  --sidebar-accent-foreground: 0.9 0.02 70;
+  --sidebar-border: 0.3 0.03 45;
+  --sidebar-ring: 0.72 0.08 64;
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+}
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  overscroll-behavior: none;
+}
+
+body {
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: currentColor;
+}
+
+/* Page layout (plain CSS — no dependency on generated utilities). */
+.stage-fill {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+}
+
+.stage-absolute {
+  position: absolute;
+  inset: 0;
+}
+
+.stage-canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  touch-action: none;
+}
+
+.theme-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 20;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+@media (min-width: 640px) {
+  .theme-btn {
+    top: 24px;
+    right: 28px;
+  }
+}
+
+.theme-btn-dark {
+  color: #ffe0c2;
+}
+
+.theme-btn-dark:hover {
+  color: rgba(255, 224, 194, 0.55);
+}
+
+.theme-btn-light {
+  color: #644a40;
+}
+
+.theme-btn-light:hover {
+  color: rgba(100, 74, 64, 0.55);
+}
