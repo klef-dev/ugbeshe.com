@@ -54,7 +54,7 @@ export default function App() {
   if (view === 'game') {
     return (
       <main
-        className="stage-fill stage-scroll"
+        className="stage-fill"
         style={{
           backgroundColor: dark ? '#000000' : '#ffffff',
           color: dark ? '#ffe0c2' : '#644a40',
