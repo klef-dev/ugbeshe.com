@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import ParticleWord from './components/ParticleWord'
+import WordleGame from './components/WordleGame'
 
 type Theme = 'light' | 'dark'
 
@@ -35,6 +36,7 @@ function MoonIcon() {
 
 export default function App() {
   const [theme, setTheme] = useState<Theme>(() => loadTheme())
+  const [view, setView] = useState<'home' | 'game'>('home')
   const dark = theme === 'dark'
 
   useEffect(() => {
@@ -49,6 +51,20 @@ export default function App() {
 
   const toggle = () => setTheme((t) => (t === 'dark' ? 'light' : 'dark'))
 
+  if (view === 'game') {
+    return (
+      <main
+        className="stage-fill stage-scroll"
+        style={{
+          backgroundColor: dark ? '#000000' : '#ffffff',
+          color: dark ? '#ffe0c2' : '#644a40',
+        }}
+      >
+        <WordleGame theme={theme} onExit={() => setView('home')} onToggleTheme={toggle} />
+      </main>
+    )
+  }
+
   return (
     <main
       className="stage-fill"
@@ -60,6 +76,20 @@ export default function App() {
     >
       <div className="stage-absolute">
         <ParticleWord theme={theme} />
+      </div>
+      <div className="home-cta">
+        <p className="home-tag">English 5-letter • new word every day</p>
+        <button
+          type="button"
+          onClick={() => setView('game')}
+          className="home-play"
+          style={{
+            backgroundColor: dark ? '#ffe0c2' : '#644a40',
+            color: dark ? '#000000' : '#ffffff',
+          }}
+        >
+          Play Daily Word →
+        </button>
       </div>
       <button
         type="button"
